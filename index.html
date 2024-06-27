@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1 id="current-date"></h1>
+    </div>
+    <div class="container">
+      <div class="column add-user">
+        <h2>Add User</h2>
+        <form id="user-form">
+          <input type="text" id="username" placeholder="Username" required />
+
+          <button type="submit">Add User</button>
+          <div class="user-list">
+            <h2>User List</h2>
+            <ul id="user-list"></ul>
+          </div>
+        </form>
+      </div>
+      <div class="column create-task">
+        <h2>Create new task</h2>
+        <form id="task-form">
+          <input name="title" type="text" id="title" placeholder="Title" required />
+          <textarea
+            id="description"
+            placeholder="Description"
+            required
+          ></textarea>
+          <input type="date" id="dueDate" required />
+          <input type="time" id="dueTime" required />
+          <select id="assignedTo" required>
+            <option value="" disabled selected>Assign to user</option>
+          </select>
+
+          <button type="submit">Add Task</button>
+        </form>
+      </div>
+      <div
+        class="column"
+        id="pending"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+      >
+        <h2>Pending</h2>
+      </div>
+      <div
+        class="column"
+        id="completed"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+      >
+        <h2>Completed</h2>
+      </div>
+      <div class="column" id="pastdue">
+        <h2>Past due</h2>
+      </div>
+    </div>
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
